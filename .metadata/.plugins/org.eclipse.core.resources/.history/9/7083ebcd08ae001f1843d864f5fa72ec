@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 게시판 웹 사이트</title>
+</head>
+<body>
+	<%
+		session.invalidate(); //로그인한 회원이 세션을 뺏기도록 설정.
+	%>
+	<script>
+		location.href='main.jsp'; //main.jsp로 이동할 수 있게 설정.
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+@charset "UTF-8";
+.bbsWrap{width:100%; margin:0 auto;}
+.navWrap{width:100%; height:60px; background:#219c80; display:flex;
+justify-content: space-between; align-items: center;padding: 0 30px;}
+.navWrap h1 a{color:#fff; font-size:22px; font-weight:600; display:flex; 
+justify-content: center; align-items: center; width:240px; height:60px;}
+
+.navWrap .userMenu{display:flex; justify-content: flex-end; align-items: center;}
+.navWrap .userMenu a{color:rgba(255,255,255,0.8); font-size:15px; padding:0 10px;
+font-weight:600;}
+.navWrap .userMenu li:last-child a{padding-right:0;}
+.navWrap .userMenu li.active a{color:#fff;}
+.navWrap .userMenu a:hover{color:#fff;}
+
+
+.bbsWrap .container{width:94%; margin:30px auto 0;}
+.bbsWrap .container .tableWrap{width:100%; border-top: 2px solid #219c80;
+border-bottom: 1px solid #d7d7d7;}
+
+.bbsWrap .container .tableWrap table{table-layout: fixed; border-collapse: collapse;
+width:100%;}
+.bbsWrap .container .tableWrap table tr th{display:table-cell; vertical-align:middle; padding:0 10px; background: #f4f4f9; 
+height: 40px; font-size: 15px; color:#000;}
+.bbsWrap .container .tableWrap table tr td{display:table-cell; vertical-align:middle; padding:0 10px; font-size: 15px; 
+border-top: 1px solid #d7d7d7; line-height: 1.3; height: 50px; text-align: center; cursor:pointer;}
+
+.bbsWrap .container .tableWrap table tr td a{color:#666; display:block;}
+
+.bbsWrap .container .tableWrap table tr:hover td{background:#f4f4f9;}
+
+.bbsWrap .container .tableWrap.writeTable table tr td{border-top:none; border-bottom:1px solid #d7d7d7; padding:0; cursor:auto;}
+.bbsWrap .container .tableWrap.writeTable table tr:hover td, .bbsWrap .container .tableWrap.viewTable table tr:hover td{background:inherit;}
+.bbsWrap .container .writeTable table tr td input{width:100%; height:100%; border:none; padding:0 20px; outline:none;}
+.bbsWrap .container .writeTable table tr td textarea{width:100%; min-height:580px; border:none; padding:20px; outline:none;
+resize:none;}
+
+.bbsWrap .container .tableWrap.viewTable table tr th{height:50px;}
+.bbsWrap .container .viewTable table tr td{cursor:auto;}
+.bbsWrap .container .viewTable table tr td.tit {color:#000; background:#f4f4f9;}
+.bbsWrap .container .viewTable table tr:hover td.tit {color:#000; background:#f4f4f9;}
+.bbsWrap .container .viewTable table tr td.text {text-align:left;}
+.bbsWrap .container .viewTable table tr td.textBox{padding:20px;}
+
+
+.btnWrap{display:flex;justify-content: space-between; align-items: center; margin-top:20px;}
+.btnWrap .prevnextBtn{display:flex;}
+.btnWrap .btn{display:flex;justify-content: center;align-items: center;
+width:50px; height:40px; background:#eee; border-radius:5px; border:1px solid #d7d7d7; color:#666; margin-right:6px;}
+.btnWrap .btn:hover{background:#219c80; color:#fff; border-color:#219c80;}
+.btnWrap .btn.green-btn{background:#219c80; color:#fff; width:80px; border-color:#219c80;}
+
+
+/*로그인*/
+.loginWrap{width:480px; margin:60px auto 0; background: #fff; box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.1);
+padding:60px;}
+.loginWrap h2{font-size:28px; font-weight:600; text-align:center; color:#000; margin-bottom:40px;}
+.loginWrap ul li{margin-bottom:10px;}
+.loginWrap ul li input {width:100%; height:40px; border:1px solid #d7d7d7; 
+border-radius:5px; outline:none; padding:0 10px; box-sizing:border-box;}
+.loginWrap .loginBtn{width:100%; background:#219c80; color:#fff; border-radius:5px;
+border:1px solid #219c80; height:40px; font-size:16px; font-weight:600; height:45px;}
+.loginWrap ul li input[type="radio"]{width:15px; height:15px;}
+
+.loginWrap ul li.radioList{display:flex; justify-content: center; align-items:center; padding:10px 0;}
+.loginWrap ul li.radioList label{display:flex; justify-content: flex-start; align-items:center; cursor:pointer;}
+.loginWrap ul li.radioList label input{margin-right:5px;}
+.loginWrap ul li.radioList label:first-child{margin-right:20px;}
+

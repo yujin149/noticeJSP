@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="bbs.BbsDAO"%>
+<%@ page import="bbs.Bbs"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.io.PrintWriter"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+    <!-- 여기에 CSS 링크 추가 -->
+</head>
+<body>
+    <%
+        String searchField = request.getParameter("searchField");
+        String searchText = request.getParameter("searchText");
+        
+        BbsDAO bbsDAO = new BbsDAO();
+        ArrayList<Bbs> list = bbsDAO.getSearch(searchField, searchText);
+        
+        // 검색 결과를 표시하는 HTML 코드 작성
+        // bbs.jsp와 비슷한 형식으로 결과를 보여줄 수 있습니다
+    %>
+</body>
+</html>

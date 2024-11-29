@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "Noto Sans KR";
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+         unicode-range: U+AC00-D7A3;
+        }
+
+@font-face {
+    font-family: 'roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+         unicode-range: U+0030-0039;
+}

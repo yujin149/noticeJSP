@@ -1,0 +1,16 @@
+package bbs;
+
+public class Bbs {
+	private int bbsNum;
+	private String bbsTitle;
+	private String userID;
+	private String userName;
+	private String bbsDate;
+	private String bbsContent;
+	private int bbsAvailable;
+	
+	
+	//getter setter 생성
+	
+
+}

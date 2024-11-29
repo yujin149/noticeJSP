@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="bbs.Bbs"%>
+<%@ page import="bbs.BbsDAO"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<title>JSP 게시판 웹 사이트</title>
+</head>
+<body>
+	<%
+	String userID = null; //로그인 안 한 사람.
+	if (session.getAttribute("userID") != null) //로그인 한 사람.
+	{
+		userID = (String) session.getAttribute("userID");
+	}
+	//로그인이 된 회원은 로그인의 정보를 담을수 있도록 설정
+	if(userID == null){ //로그인이 안되어 있을때,
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인을 먼저하세요.')");
+		script.println("location.href = 'login.jsp'");
+		script.println("</script>");
+	}
+	int bbsID = 0;
+	if(request.getParameter("bbsID") != null){
+		bbsID = Integer.parseInt(request.getParameter("bbsID"));
+		//bbsID가 null값이 아닌 경우, bbsID에 읽어온 값을 저장한다.
+	}
+	
+	if(bbsID == 0){ //글의 번호가 들어오지 않았다면,
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('유효하지 않은 글입니다.')");
+		script.println("location.href = 'bbs.jsp'");
+		script.println("</script>");
+	}
+	Bbs bbs = new BbsDAO().getBbs(bbsID); //현재 작성한 글이 작성한 사람 본인인지 확인하기 위해.
+	if(!userID.equals(bbs.getUserID())){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('권한이 없습니다.')");
+		script.println("location.href = 'bbs.jsp'");
+		script.println("</script>");
+	}
+
+	%>
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+		</div>
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="main.jsp">메인</a></li>
+				<!-- 현재 접속한 페이지 active -->
+				<li class="active"><a href="bbs.jsp">게시판</a></li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">회원관리<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="logoutAction.jsp">로그아웃</a></li>
+					</ul></li>
+			</ul>
+			
+		</div>
+	</nav>
+
+	<!-- 게시판 페이지 컨텐츠 영역 -->
+	<div class="container">
+		<div class="row">
+			<form method="post" action="updateAction.jsp?bbsID=<%=bbsID%>"> <!-- post 형식 => 보내지는 내용이 안보이도록 -->
+				<table class="table table-striped"
+					style="text-align: center; border: 1px solid #dddddd">
+					<thead>
+						<tr>
+							<th colspan="2"
+								style="background-color: #aaaaaa; text-align: center;">게시판 글 수정 양식</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" class="form-control"
+								placeholder="글 제목" name="bbsTitle" maxlength="50" value="<%=bbs.getBbsTitle()%>"></td>
+						</tr>
+						<tr>
+							<td><textarea class="form-control" placeholder="글 내용"
+									name="bbsContent" maxlength="2048" style="height: 350px"><%= bbs.getBbsContent() %></textarea></td>
+							<!-- input = 특정한 정보를 action페이지로 보내도록, textarea = 장문의 글 작성할때, -->
+						</tr>
+					</tbody>
+
+					<!-- 글쓰기 버튼 => 실제로 데이터를 action페이지로 보냄 -->
+				</table>
+				<input type="submit" class="btn btn-primary pull-right" value="글 수정">
+				<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
+			</form>
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>

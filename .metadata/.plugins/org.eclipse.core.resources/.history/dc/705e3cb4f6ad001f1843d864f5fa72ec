@@ -1,0 +1,15 @@
+package bbs;
+
+public class Bbs {
+	private int bbsNum; //게시글 번호
+	private String bbsTitle; // 제목
+	private String userID; // id
+	private String bbsDate; //등록일자
+	private String bbsContent; //내용
+	private int bbsAvailable; //글 삭제 목적
+	
+	
+	//getter setter 생성
+	
+
+}
